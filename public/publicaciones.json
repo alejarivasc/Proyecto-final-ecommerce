@@ -1,0 +1,167 @@
+[
+  {
+    "id": 1,
+    "titulo": "Servicio de carpintería",
+    "descripcion_corta": "Muebles a medida",
+    "descripcion_larga": "Elaboramos muebles a medida para hogares y negocios. Trabajamos con maderas de alta calidad y nos adaptamos a tus necesidades y gustos. Contáctanos para recibir un presupuesto.",
+    "precio": 20000,
+    "nombre_persona": "Juan Pérez",
+    "ubicacion": "Santiago, Chile",
+    "tipo": "Construcción",
+    "img": "/1Serviciocarpinteria.jpg"
+  },
+  {
+    "id": 2,
+    "titulo": "Limpieza de oficinas",
+    "descripcion_corta": "Limpieza de oficinas y espacios comerciales",
+    "descripcion_larga": "Brindamos servicios de limpieza para oficinas y espacios comerciales de todos los tamaños. Utilizamos productos de limpieza seguros y herramientas especializadas para garantizar un ambiente limpio y saludable. Contáctanos para recibir un presupuesto gratuito.",
+    "precio": 45000,
+    "nombre_persona": "María González",
+    "ubicacion": "Valparaíso, Chile",
+    "tipo": "Mantenimiento y limpieza",
+    "img": "/2Serviciolimpieza.jpg"
+  },
+  {
+    "id": 3,
+    "titulo": "Servicio de construcción",
+    "descripcion_corta": "Construcción de viviendas",
+    "descripcion_larga": "Ofrecemos servicios de construcción de viviendas, desde el diseño hasta la construcción completa. Trabajamos con materiales de alta calidad y nos aseguramos de que el proyecto cumpla con todas tus necesidades y expectativas. Contáctanos para recibir un presupuesto gratuito.",
+    "precio": 1000000,
+    "nombre_persona": "Jorge Hernández",
+    "ubicacion": "Concepción, Chile",
+    "tipo": "Construcción",
+    "img": "/3Servicioconstruccion.jpg"
+  },
+  {
+    "id": 4,
+    "titulo": "Reparación de celulares",
+    "descripcion_corta": "Reparación de celulares y tablets",
+    "descripcion_larga": "Brindamos servicios de reparación de celulares y tablets de todas las marcas y modelos. Solucionamos problemas de pantalla, batería, software y más. Contáctanos para recibir un presupuesto gratuito.",
+    "precio": 25000,
+    "nombre_persona": "Pedro Martínez",
+    "ubicacion": "Puerto Montt, Chile",
+    "tipo": "Reparación",
+    "img": "/4Serviciocelulares.jpg"
+  },
+  {
+    "id": 5,
+    "titulo": "Servicio de diseño gráfico",
+    "descripcion_corta": "Diseño de logotipos y materiales gráficos",
+    "descripcion_larga": "Ofrecemos servicios de diseño gráfico para empresas y negocios, incluyendo diseño de logotipos, tarjetas de presentación, folletos y más. Trabajamos de la mano contigo para asegurarnos de que el diseño refleje la identidad y personalidad de tu negocio. Contáctanos para recibir un presupuesto gratuito.",
+    "precio": 60000,
+    "nombre_persona": "Carla Ramírez",
+    "ubicacion": "Antofagasta, Chile",
+    "tipo": "remoto",
+    "img": "/5portafoliodiseño.jpg"
+  },
+  {
+    "id": 6,
+    "titulo": "Servicio de traducción",
+    "descripcion_corta": "Traducción de documentos",
+    "descripcion_larga": "Brindamos servicios de traducción de documentos de todo tipo, incluyendo manuales, textos académicos, legales y más. Contamos con traductores altamente capacitados en diversos idiomas. Contáctanos para recibir un presupuesto gratuito.",
+    "precio": 35000,
+    "nombre_persona": "Gabriel López",
+    "ubicacion": "Santiago, Chile",
+    "tipo": "Idiomas",
+    "img": "/6Serviciotraduccion.jpg"
+  },
+  {
+    "id": 7,
+    "titulo": "Servicio de jardinería",
+    "descripcion_corta": "Mantenimiento de jardines",
+    "descripcion_larga": "Ofrecemos servicios de jardinería, incluyendo mantenimiento de jardines, diseño de paisajes y más. Utilizamos técnicas y herramientas especializadas para asegurarnos de que tu jardín luzca espectacular todo el año. Contáctanos para recibir un presupuesto gratuito.",
+    "precio": 50000,
+    "nombre_persona": "Andrea Muñoz",
+    "ubicacion": "Viña del Mar, Chile",
+    "tipo": "Mantenimiento y limpieza",
+    "img": "/7Mantenimientojardines.jpg"
+  },
+  {
+    "id": 8,
+    "titulo": "Reparación de electrodomésticos",
+    "descripcion_corta": "Reparación de refrigeradores y lavadoras",
+    "descripcion_larga": "Brindamos servicios de reparación de electrodomésticos, incluyendo refrigeradores, lavadoras y más. Solucionamos problemas de funcionamiento, piezas y más. Contáctanos para recibir un presupuesto gratuito.",
+    "precio": 35000,
+    "nombre_persona": "Pablo Rojas",
+    "ubicacion": "Valdivia, Chile",
+    "tipo": "Reparación",
+    "img": "/8reparacionnevera.jpg"
+  },
+  {
+    "id": 9,
+    "titulo": "Clases de música",
+    "descripcion_corta": "Clases de guitarra y piano",
+    "descripcion_larga": "Ofrecemos clases de música personalizadas para todos los niveles y edades, incluyendo guitarra, piano y más. Nuestros profesores son músicos profesionales con experiencia en la enseñanza. Contáctanos para recibir más información y precios.",
+    "precio": 20000,
+    "nombre_persona": "Marcela Silva",
+    "ubicacion": "Talcahuano, Chile",
+    "tipo": "Clases",
+    "img": "/9enseñanzamusica.jpg"
+  },
+  {
+    "id": 10,
+    "titulo": "Reparación de automóviles",
+    "descripcion_corta": "Reparación de autos de todas las marcas",
+    "descripcion_larga": "Ofrecemos servicios de reparación de automóviles de todas las marcas. Contamos con mecánicos especializados y equipamiento de última generación para garantizar un trabajo de calidad. Contáctanos para recibir un presupuesto gratuito.",
+    "precio": 60000,
+    "nombre_persona": "Felipe Ramos",
+    "ubicacion": "Santiago, Chile",
+    "tipo": "Reparación",
+    "img": "/10reparacionautomoviles.jpg"
+  },
+  {
+    "id": 11,
+    "titulo": "Desarrollo de aplicaciones móviles",
+    "descripcion_corta": "Desarrollo de apps móviles para iOS y Android",
+    "descripcion_larga": "Ofrecemos servicios de desarrollo de aplicaciones móviles para iOS y Android. Contamos con un equipo de desarrolladores altamente capacitados y utilizamos las tecnologías más modernas para garantizar un producto de calidad. Contáctanos para recibir un presupuesto gratuito.",
+    "precio": 150000,
+    "nombre_persona": "Luis González",
+    "ubicacion": "Viña del Mar, Chile",
+    "tipo": "Software",
+    "img": "/11desarrolloapp.jpg"
+  },
+  {
+    "id": 12,
+    "titulo": "Diseño web",
+    "descripcion_corta": "Diseño de sitios web personalizados",
+    "descripcion_larga": "Ofrecemos servicios de diseño web para crear sitios web personalizados y atractivos. Nuestro equipo de diseñadores y desarrolladores trabaja juntos para asegurarnos de que tu sitio web sea único y efectivo. Contáctanos para recibir un presupuesto gratuito.",
+    "precio": 120000,
+    "nombre_persona": "Martina López",
+    "ubicacion": "Antofagasta, Chile",
+    "tipo": "Diseño",
+    "img": "/12diseñoweb.jpg"
+  },
+  {
+    "id": 13,
+    "titulo": "Desarrollo de software",
+    "descripcion_corta": "Desarrollo de software personalizado",
+    "descripcion_larga": "Ofrecemos servicios de desarrollo de software personalizado para empresas de todos los tamaños. Contamos con un equipo de desarrolladores altamente capacitados y utilizamos las tecnologías más modernas para garantizar un producto de calidad. Contáctanos para recibir un presupuesto gratuito.",
+    "precio": 250000,
+    "nombre_persona": "Juan Pérez",
+    "ubicacion": "Puerto Varas, Chile",
+    "tipo": "Software",
+    "img": "/13desarrollosoftware.jpg"
+  },
+  {
+    "id": 14,
+    "titulo": "Mantenimiento de sistemas informáticos",
+    "descripcion_corta": "Mantenimiento y soporte de sistemas informáticos",
+    "descripcion_larga": "Ofrecemos servicios de mantenimiento y soporte de sistemas informáticos para empresas de todos los tamaños. Contamos con técnicos altamente capacitados y utilizamos herramientas especializadas para garantizar un trabajo de calidad. Contáctanos para recibir un presupuesto gratuito.",
+    "precio": 80000,
+    "nombre_persona": "Pedro Ortiz",
+    "ubicacion": "La Serena, Chile",
+    "tipo": "Software",
+    "img": "/14mantenimientosistemas.jpg"
+  },
+  {
+    "id": 15,
+    "titulo": "Servicio de consultoría en tecnología",
+    "descripcion_corta: ": "Asesoramiento en estrategias tecnológicas",
+    "descripcion_larga": "Ofrecemos servicios de consultoría en tecnología para empresas de todos los sectores. Nuestro equipo de consultores está altamente capacitado para brindar asesoramiento en estrategias tecnológicas, planificación de proyectos, implementación de soluciones tecnológicas y mucho más. Contáctanos para recibir un presupuesto gratuito.",
+    "precio": 350000,
+    "nombre_persona": "Carla Rojas",
+    "ubicacion": "Valparaíso, Chile",
+    "tipo": "Software",
+    "img": "/15consultoriatecnologia.jpg"
+  }
+]
