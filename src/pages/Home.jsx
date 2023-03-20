@@ -6,7 +6,7 @@ export default function Home() {
     <div>
       <img className="banner" src={banner} />
 
-      <SearchSort />
+     <SearchSort /> 
     </div>
   );
 }

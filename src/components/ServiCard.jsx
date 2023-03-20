@@ -1,29 +1,41 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-// import { Link } from "react-router-dom";
+import { Heart } from "react-bootstrap-icons";
+import { HeartFill} from "react-bootstrap-icons";
+
+import { useFavoritesContext } from "../context/FavoritesContext";
 
 
-export default function ServiCard({ img, titulo, precio, id, info}) {
+
+export default function ServiCard({info}) {
+  const { favorites, addFavorites, removeFavorites } = useFavoritesContext();
+// console.log(info.id+ "es favorito?" + favorites)
+
+// const handleClick =() =>{
+//   addFavorite (id)
+// }
+const isFavorite = favorites.some((item) => item.id === info.id);
+
   return (
-    <div class="col">
+    <div className="col">
       <Card className="h-100" style={{ width: "18rem" }}>
-        <Card.Img
+        <Card.Img className="productimg"
           variant="top"
-          src={img}
-          style={{ height: "200px", objectFit: "cover" }}
+           src={info.img}
         />
+              {isFavorite  ? (
+              <HeartFill className="iconfav" role="button" onClick={() => 
+                removeFavorites(info.id)} /> )
+        : (<Heart className="iconfav"  role="button" onClick={() =>  addFavorites(info)} />
+       ) }
         <Card.Body className="d-flex">
           <div>
-            <Card.Title>{titulo}</Card.Title>
-            <Card.Text>{precio}</Card.Text>
+            <Card.Title>{info.titulo}</Card.Title>
+            <Card.Text>{info.precio}</Card.Text>
           </div>
           <div>
             <Button variant="primary">Comprar</Button>
-            <Button variant="primary">Ver detalle</Button>
-
-            {/* <Link to={`/services/${info.id}`}>
-              Ver detalles
-            </Link>  */}
+            <Button variant="primary">Favorito</Button>
                      </div>
         </Card.Body>
       </Card>

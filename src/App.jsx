@@ -17,7 +17,7 @@ import MyService from "./pages/MyService";
 import NewService from "./pages/NewService";
 import MyCart from "./pages/Mycart";
 
-// import Service from "./pages/Service";
+ import Service from "./pages/Service";
 
 function App() {
   return (
@@ -37,10 +37,10 @@ function App() {
           <Route path="/editprofile" element={<EditProfile />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/myservice" element={<MyService />} />
-          <Route path="/NewService" element={<NewService />} />
+          <Route path="/newservice" element={<NewService />} />
           <Route path="/mycart" element={<MyCart />} />
 
-          {/* <Route path="/services/:id" element={<Service />} /> */}
+           <Route path="/services/:id" element={<Service />} />
         </Routes>
       </main>
 
