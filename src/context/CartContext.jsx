@@ -33,8 +33,13 @@ export default function CartProvider({ children }) {
       })
       )}};
   const total = () => {
-    return cart.reduce((acc, service) => acc + service.price * service.amount, 0);
+    return cart.reduce((acum, service) => acum + service.precio * service.amount, 0);
   };
+
+  const unformattedTotal = total();
+const formattedTotal = Number.isFinite(unformattedTotal)
+  ? parseFloat(unformattedTotal.toFixed(2))
+  : 0;
 
   const serviceAmount = (id) => {
     const service = cart.find((added) => added.id === id);
@@ -47,7 +52,7 @@ export default function CartProvider({ children }) {
         cart,
         addService,
         removeService,
-        total,
+        formattedTotal,
         serviceAmount,
       }}
     >
