@@ -1,56 +1,50 @@
- import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Card, Button } from "react-bootstrap";
- import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
+export default function Service() {
+  const [serviceData, setServiceData] = useState("");
+  const [loading, setLoading] = useState(true);
 
+  const params = useParams();
 
- export default function Service() {
-   const [serviceData, setServiceData] = useState("");
-   const [loading, setLoading] = useState(true);
+  const getService = async () => {
+    setLoading(true);
 
-   const params = useParams();
+    const res = await fetch("/publicaciones.json");
+    const data = await res.json();
+    const serviceData = data.find((filtered) => filtered.id === params.id);
+    console.log(serviceData);
+    setServiceData(serviceData);
+  };
+  useEffect(() => {
+    getService();
+  }, [params]);
 
-
-   const getService = async () => {
-     setLoading(true);
-
-     const res = await fetch("/publicaciones.json");
-     const data = await res.json();
-     const serviceData = data.find ((filtered) => filtered.id === params.id);
-console.log (serviceData)
-     setServiceData(serviceData);
-   };
-   useEffect(() => {
-     getService();
-   }, [params]);
-
-   return (
-
+  return (
     <div>
+      <Card className="flex-row">
+        <Card.Img
+          src={serviceData.img}
+          className="img-fluid rounded-start h-100 w-50"
+          alt={serviceData.titulo}
+        />
+        <Card.Body className="w-50">
+          <Card.Title>{serviceData.titulo}</Card.Title>
+          <Card.Text>{serviceData.descripcion_larga}</Card.Text>
+          <Card.Text>Ofrecido por: {serviceData.nombre_persona}</Card.Text>
+          <Card.Text>Ubicado en: {serviceData.ubicacion}</Card.Text>
+          <Card.Text>Precio: {serviceData.precio}</Card.Text>
+          <div className="d-flex justify-content-end mt-auto">
+            <Button variant="primary" className="mr-2">
+              Agregar al carrito
+            </Button>
+            <Button variant="secondary">Agregar a Favoritos</Button>
+          </div>
+        </Card.Body>
+      </Card>
 
-<Card className="flex-row">
-      <Card.Img src={serviceData.img}
-             className="img-fluid rounded-start h-100 w-50"
-             alt={serviceData.titulo} 
-              />
-      <Card.Body className="w-50">
-        <Card.Title>{serviceData.titulo}</Card.Title>
-        <Card.Text>{serviceData.descripcion_larga}</Card.Text>
-        <Card.Text>Ofrecido por: {serviceData.nombre_persona}</Card.Text>
-        <Card.Text>Ubicado en: {serviceData.ubicacion}</Card.Text>
-        <Card.Text>Precio: {serviceData.precio}</Card.Text>
-        <div className="d-flex justify-content-end mt-auto">
-          <Button variant="primary" className="mr-2">Agregar al carrito</Button>
-          <Button variant="secondary">Agregar a Favoritos</Button>
-        </div>
-      </Card.Body>
-    </Card>
-
-
-
-
-
-    {/* <Card>
+      {/* <Card>
     <Row>
       <Col md={6}>
         <Card.Img variant="top" src={serviceData.img}
@@ -87,14 +81,11 @@ console.log (serviceData)
   </Card> */}
     </div>
 
-
-
-
     //  <div className="card mb-3 mt-5">
     //    <div className="row g-0">
     //      <div className="col-md-4">
     //        <img
-             
+
     //        />
     //      </div>
     //      <div className="col-md-8">
@@ -111,5 +102,5 @@ console.log (serviceData)
     //      </div>
     //    </div>
     //  </div>
-   );
- }
+  );
+}
