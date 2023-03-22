@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Cart2 } from "react-bootstrap-icons";
 
 import SignIn from "../pages/SignIn";
@@ -10,7 +10,11 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
+import { useUserContext } from "../context/UserContext";
+
 export default function NavBar() {
+  const { userIn, handleLogout } = useUserContext();
+
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container className="mt-0">
@@ -27,28 +31,43 @@ export default function NavBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto gap-2">
             <NavLink to="/about">¿Quiénes somos?</NavLink>
-            <NavLink to="/singin">
-              <SignIn />
-            </NavLink>
-            <NavLink to="/singup">
-              <SignUp />
-            </NavLink>
+
+            {userIn ? (
+              <NavLink to="/" onClick={handleLogout}>
+                Cerrar sesión
+              </NavLink>
+            ) : (
+              <>
+                <NavLink to="/singin">
+                  <SignIn />
+                </NavLink>
+                <NavLink to="/singup">
+                  <SignUp />
+                </NavLink>
+              </>
+            )}
+
             <NavLink to="/services">Servicios</NavLink>
           </Nav>
           <Nav className=" gap-2">
-            <NavDropdown
-              title="Mi Cuenta"
-              id="collasible-nav-dropdown"
-              className="d-flex flex-column"
-            >
-              <NavLink to="/profile">Perfil</NavLink>
-              <NavLink to="/favorites">Mis favoritos</NavLink>
-              <NavLink to="/myservice">Mis Publicaciones</NavLink>
-            </NavDropdown>
-            <NavLink to="/mycart">
-              Mi carro
-              <Cart2 />
-            </NavLink>
+            {userIn ? (
+              <NavDropdown
+                title="Mi Cuenta"
+                id="collasible-nav-dropdown"
+                className="d-flex flex-column"
+              >
+                <NavLink to="/profile">Perfil</NavLink>
+                <NavLink to="/favorites">Mis favoritos</NavLink>
+                <NavLink to="/myservice">Mis Publicaciones</NavLink>
+              </NavDropdown>
+            ) : null}
+
+            {userIn ? (
+              <NavLink to="/mycart">
+                Mi carro
+                <Cart2 />
+              </NavLink>
+            ) : null}
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -27,19 +27,24 @@ export default function CartProvider({ children }) {
     } else {
       setCart(
         cart.map((added) => {
-        if (added.id === service.id) {
-          return { ...serviceAdded, amount: serviceAdded.amount - 1 };
-        } else return added;
-      })
-      )}};
+          if (added.id === service.id) {
+            return { ...serviceAdded, amount: serviceAdded.amount - 1 };
+          } else return added;
+        })
+      );
+    }
+  };
   const total = () => {
-    return cart.reduce((acum, service) => acum + service.precio * service.amount, 0);
+    return cart.reduce(
+      (acum, service) => acum + service.precio * service.amount,
+      0
+    );
   };
 
   const unformattedTotal = total();
-const formattedTotal = Number.isFinite(unformattedTotal)
-  ? parseFloat(unformattedTotal.toFixed(2))
-  : 0;
+  const formattedTotal = Number.isFinite(unformattedTotal)
+    ? parseFloat(unformattedTotal.toFixed(2))
+    : 0;
 
   const serviceAmount = (id) => {
     const service = cart.find((added) => added.id === id);

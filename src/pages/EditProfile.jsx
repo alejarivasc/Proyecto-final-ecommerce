@@ -1,23 +1,88 @@
+import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { useUserContext } from "../context/UserContext";
 
 export default function EditProfile() {
+  const { users, handleAddUser, userIn, handleLogout } = useUserContext();
+  const currentUser = users.find((user) => user.email === userIn);
+
+  const [name, setName] = useState(currentUser?.name || "");
+  const [password, setPassword] = useState(currentUser?.password || "");
+  const [birthdate, setBirthdate] = useState(currentUser?.birthdate || "");
+  const [location, setLocation] = useState(currentUser?.location || "");
+
+  const handleSaveChanges = (e) => {
+    e.preventDefault();
+    const updatedUser = {
+      ...currentUser,
+      name,
+      birthdate,
+      location,
+      passwword,
+    };
+    handleAddUser(updatedUser);
+    alert("Tus datos se han actualizado");
+  };
+
+  const handleLogoutClick = () => {
+    handleLogout();
+    alert("Has cerrado sesión");
+  };
+
   return (
-    <Form>
-      <Form.Group className="mb-3" controlId="formName">
-        <Form.Label>Nombre</Form.Label>
-        <Form.Control type="text" placeholder="Nombre" />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email</Form.Label>
-        <Form.Control type="email" placeholder="Email" />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBirthdate">
-        <Form.Label>Fecha de Nacimiento</Form.Label>
-        <Form.Control type="date" />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Guardar
+    <>
+      <h1>Editar perfil</h1>
+      <Form onSubmit={handleSaveChanges}>
+        <Form.Group controlId="formName">
+          <Form.Label>Nombre completo</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Ingresa tu nombre completo"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </Form.Group>
+
+        <Form.Group controlId="formBirthdate">
+          <Form.Label>Fecha de nacimiento</Form.Label>
+          <Form.Control
+            type="date"
+            placeholder="Ingresa tu fecha de nacimiento"
+            value={birthdate}
+            onChange={(e) => setBirthdate(e.target.value)}
+          />
+        </Form.Group>
+
+        <Form.Group controlId="formLocation">
+          <Form.Label>Dirección</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Ingresa tu dirección"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+          />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Contraseña</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder="Ingrese la contraseña"
+            name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </Form.Group>
+      </Form>
+      <Link to={"/profile"}>
+        <Button variant="primary" type="submit">
+          Guardar datos
+        </Button>
+      </Link>
+      <Button variant="danger" onClick={handleLogoutClick}>
+        Cerrar sesión
       </Button>
-    </Form>
+    </>
   );
 }

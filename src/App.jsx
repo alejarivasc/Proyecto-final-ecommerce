@@ -16,8 +16,8 @@ import Favorites from "./pages/Favorites";
 import MyService from "./pages/MyService";
 import NewService from "./pages/NewService";
 import MyCart from "./pages/Mycart";
-
  import Service from "./pages/Service";
+
 
 function App() {
   return (
@@ -39,7 +39,6 @@ function App() {
           <Route path="/myservice" element={<MyService />} />
           <Route path="/newservice" element={<NewService />} />
           <Route path="/mycart" element={<MyCart />} />
-
            <Route path="/services/:id" element={<Service />} />
         </Routes>
       </main>

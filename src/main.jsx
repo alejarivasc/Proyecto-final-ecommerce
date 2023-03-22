@@ -6,6 +6,7 @@ import App from './App'
 import { BrowserRouter } from "react-router-dom";
 import FavoritesProvider from './context/FavoritesContext';
 import CartProvider from './context/CartContext';
+import UserProvider from './context/UserContext';
 
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -14,12 +15,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-        <CartProvider>
+        <BrowserRouter>
+   <UserProvider>
+   <CartProvider>
 <FavoritesProvider>
-    <BrowserRouter>
     <App />
-    </BrowserRouter>
     </FavoritesProvider>
     </CartProvider>
+   </UserProvider>
+   </BrowserRouter>
   </React.StrictMode>,
 );

@@ -1,15 +1,18 @@
 [
   {
-    "email": "travisbarker@blink182.com",
-    "password": "tutupatutupa",
-    "avatarSRC": "https://www.rockandpop.cl/wp-content/uploads/2022/06/Noticias-60-1-768x432.jpg",
-    "phone": "9598536"
+    "id": 1,
+    "email": "user1@example.com",
+    "password": "password1"
   },
   {
-    "email": "synystergates@avengedsevenfold.com",
-    "password": "sofaraway",
-    "avatarSRC": "https://i.pinimg.com/originals/c0/76/bf/c076bf4d471586359245e2970ec53776.jpg",
-    "phone": "9598536"
-
+    "id": 2,
+    "email": "user2@example.com",
+    "password": "password2"
+  },
+  {
+    "id": 3,
+    "email": "user3@example.com",
+    "password": "password3"
   }
 ]
+
