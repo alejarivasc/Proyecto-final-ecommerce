@@ -1,0 +1,16 @@
+@use "styles";
+@use "navbar";
+@use "card2";
+@use "signin";
+@use "about";
+@use "home";
+@use "services";
+@use "footer";
+
+
+body {
+    background-color: #27a5f5;
+    background: url("../src/assets/img/background4.png"), linear-gradient(0deg, styles.$primary-color 25%, #a4e4ef 100%);
+   }
+
+

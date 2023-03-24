@@ -1,47 +1,45 @@
 //componente para inicio de sesión
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
 
 import { Button, Form, Modal } from "react-bootstrap";
 import { useUserContext } from "../context/UserContext";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function SignIn() {
   const [show, setShow] = useState(false);
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-
   const { handleLogin, setUserIn } = useUserContext();
 
-  const handleShow = () => setShow(true);
-
-  const handleClose = () => {
-    setShow(false);
+  const handleShow = () => {
+    setShow(!show);
     setErrorMessage("");
   };
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
-    console.log({ email, password });
     const success = handleLogin(email, password);
-    console.log("success:", success);
 
     if (success) {
       setUserIn(true); // actualizamos el estado userIn en UserProvider
-      handleClose();
+      handleShow();
+      toast.success("Usuario creado exitosamente!");
     } else {
-      setErrorMessage("Invalid email or password.");
+      toast.error("Correo o contraseña inválida");
     }
   };
 
   return (
     <>
-      <NavLink variant="primary" onClick={handleShow}>
+      <p
+        className={show ? "active-class" : "inactive-class"}
+        onClick={handleShow}
+      >
         Iniciar sesión
-      </NavLink>
+      </p>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleShow} className="signin-modal">
         <Modal.Header closeButton>
           <Modal.Title>¡Bienvenido de nuevo!</Modal.Title>
         </Modal.Header>
@@ -54,6 +52,7 @@ export default function SignIn() {
                 placeholder="user@mail.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                className="signin-input"
               />
             </Form.Group>
 
@@ -64,14 +63,19 @@ export default function SignIn() {
                 placeholder="Ingresa tu contraseña"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                className="signin-input"
               />
             </Form.Group>
-            <p className="text-danger">{errorMessage}</p>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
+              <Button
+                className="btnout"
+                variant="secondary"
+                onClick={handleShow}
+              >
                 Cancelar
               </Button>
               <Button
+                className="btnsign"
                 variant="primary"
                 type="submit"
                 onClick={handleLoginSubmit}
@@ -82,6 +86,7 @@ export default function SignIn() {
           </Form>
         </Modal.Body>
       </Modal>
+      <ToastContainer />
     </>
   );
 }

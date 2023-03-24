@@ -6,7 +6,7 @@ import { Twitter } from "react-bootstrap-icons";
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="footer">
       <Container>
         <hr />
         <Row>
@@ -27,8 +27,8 @@ const Footer = () => {
             </ul>
           </Col>
 
-          <Col md={4} className="ms-0">
-            <h3>Encuentrános en</h3>
+          <Col md={4} className="ms-0 menu">
+            <h3 className="find">Encuentrános en</h3>
             <ul>
               <li>
                 {" "}

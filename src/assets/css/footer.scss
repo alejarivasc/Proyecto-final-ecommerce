@@ -1,0 +1,17 @@
+ @use "styles";
+
+ ul {
+         list-style: none;}
+.find{
+    font-family: styles.$primary-font;
+    font-size: 18px
+}
+
+.menu{
+    margin-left: 20px;
+}
+
+.footer{
+    background-color: styles.$secondary-color;
+}
+

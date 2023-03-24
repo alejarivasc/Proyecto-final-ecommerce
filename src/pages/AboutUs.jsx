@@ -7,7 +7,7 @@ export default function AboutUs() {
       <div>
         <img className="banner" src={banner21} />
       </div>
-      <div className="d-flex container">
+      <div className=" d-flex container-txt">
         <div>
           <p className="txt ">
             Somos un equipo de emprendedores apasionados por ayudar a las
@@ -28,10 +28,7 @@ export default function AboutUs() {
             debidamente verificados y calificados para garantizar la
             satisfacción del cliente.
           </p>
-        </div>
-
-        <div>
-          <img className="logo" src={logo} />
+          <img className="logobig" src={logo} />
         </div>
       </div>
     </div>

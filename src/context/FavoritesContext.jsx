@@ -13,11 +13,6 @@ export default function FavoritesProvider({ children }) {
     setFavorites(favorites.filter((service) => service.id != id));
   };
 
-  //   const handleFavorites = (itemId) => {
-  //     if (favorites.some(item => item==itemId)) setFvorites (favorites.filter(item=> item != itemId))
-  //     else setFavorites([...favorites, itemId]);
-  //   };
-
   return (
     <FavoritesContext.Provider
       value={{ favorites, addFavorites, removeFavorites }}

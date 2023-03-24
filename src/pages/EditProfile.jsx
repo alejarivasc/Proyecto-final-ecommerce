@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 import { useUserContext } from "../context/UserContext";
+
 
 export default function EditProfile() {
   const { users, handleAddUser, userIn, handleLogout } = useUserContext();
@@ -19,15 +21,15 @@ export default function EditProfile() {
       name,
       birthdate,
       location,
-      passwword,
     };
     handleAddUser(updatedUser);
-    alert("Tus datos se han actualizado");
+    toast.success("Inicia sesión para continuar");
   };
 
   const handleLogoutClick = () => {
     handleLogout();
-    alert("Has cerrado sesión");
+    toast.success("Has cerrado sesión");
+
   };
 
   return (
@@ -75,14 +77,15 @@ export default function EditProfile() {
           />
         </Form.Group>
       </Form>
-      <Link to={"/profile"}>
-        <Button variant="primary" type="submit">
+      <Link to={"/signin"}>
+        <Button variant="primary" type="submit" onSubmit={handleAddUser}>
           Guardar datos
         </Button>
       </Link>
       <Button variant="danger" onClick={handleLogoutClick}>
         Cerrar sesión
       </Button>
+      <ToastContainer/>
     </>
   );
 }

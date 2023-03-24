@@ -16,8 +16,8 @@ import Favorites from "./pages/Favorites";
 import MyService from "./pages/MyService";
 import NewService from "./pages/NewService";
 import MyCart from "./pages/Mycart";
- import Service from "./pages/Service";
-
+import Service from "./pages/Service";
+import AuthUser from "./components/AuthUser";
 
 function App() {
   return (
@@ -33,13 +33,55 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/help" element={<Help />} />
           <Route path="*" element={<NotFound />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/editprofile" element={<EditProfile />} />
-          <Route path="/favorites" element={<Favorites />} />
-          <Route path="/myservice" element={<MyService />} />
-          <Route path="/newservice" element={<NewService />} />
-          <Route path="/mycart" element={<MyCart />} />
-           <Route path="/services/:id" element={<Service />} />
+          <Route
+            path="/profile"
+            element={
+              <AuthUser>
+                <Profile />
+              </AuthUser>
+            }
+          />
+          <Route
+            path="/editprofile"
+            element={
+              <AuthUser>
+                <EditProfile />
+              </AuthUser>
+            }
+          />
+          <Route
+            path="/favorites"
+            element={
+              <AuthUser>
+                <Favorites />
+              </AuthUser>
+            }
+          />
+          <Route
+            path="/myservice"
+            element={
+              <AuthUser>
+                <MyService />
+              </AuthUser>
+            }
+          />
+          <Route
+            path="/newservice"
+            element={
+              <AuthUser>
+                <NewService />
+              </AuthUser>
+            }
+          />
+          <Route
+            path="/mycart"
+            element={
+              <AuthUser>
+                <MyCart />
+              </AuthUser>
+            }
+          />
+          <Route path="/services/:id" element={<Service />} />
         </Routes>
       </main>
 

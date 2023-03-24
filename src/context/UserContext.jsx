@@ -5,8 +5,6 @@ export const UserContext = createContext();
 
 export default function UserProvider({ children }) {
   const navigate = useNavigate();
-  // const [email, setEmail] = useState("")
-  // const [password, setPassword] = useState("")
 
   const [users, setUsers] = useState([]);
   const [userIn, setUserIn] = useState(false);
@@ -23,18 +21,13 @@ export default function UserProvider({ children }) {
       setUserIn(true);
       navigate("/profile");
     }
-    return user !== undefined;
+    return user !== "";
   };
 
   const handleLogout = () => {
     setUserIn(false);
     navigate("/");
   };
-
-  // const handleLogin = (email, password) => {
-  //   const user = users.find((user) => user.email === email && user.password === password);
-  //   return user;
-  // };
 
   return (
     <UserContext.Provider

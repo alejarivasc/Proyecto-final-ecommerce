@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
-import { Dropdown } from "react-bootstrap";
+import { Dropdown, Spinner } from "react-bootstrap";
 
-// import MiApi from "../components/MiApi";
 import ServiCard from "../components/ServiCard";
 
 export default function Services() {
   const [services, setServices] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [loading, setLoading] = useState(false); // un estado para mostrar el loading
+  const [loading, setLoading] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   const getData = async () => {
@@ -38,18 +37,23 @@ export default function Services() {
     : services;
 
   return (
-    <div>
-      <h1>Servicios</h1>
+    <div className="services-container">
+      <h1 className="title"> Lo que necesitas a un click de distancia</h1>
       <div className="float-start" style={{ width: "20%" }}>
-        <h3>Categorías:</h3>
-        <Dropdown onSelect={handleCategorySelect}>
+        <Dropdown onSelect={handleCategorySelect} className="my-dropdown">
           <Dropdown.Toggle variant="primary" id="dropdown-basic">
-            {selectedCategory ? selectedCategory : "Todas las categorías"}
+            {selectedCategory ? selectedCategory : "Categorías"}
           </Dropdown.Toggle>
-          <Dropdown.Menu>
-            <Dropdown.Item eventKey={null}>Todas las categorías</Dropdown.Item>
+          <Dropdown.Menu className="my-dropdown-menu">
+            <Dropdown.Item eventKey={null} className="my-dropdown-item">
+              Todas las categorías
+            </Dropdown.Item>
             {categories.map((category) => (
-              <Dropdown.Item eventKey={category} key={category}>
+              <Dropdown.Item
+                eventKey={category}
+                key={category}
+                className="my-dropdown-item"
+              >
                 {category}
               </Dropdown.Item>
             ))}
@@ -57,7 +61,11 @@ export default function Services() {
         </Dropdown>
       </div>
       <div className="row row-cols-1 row-cols-md-3 g-4">
-        {loading && <h3 className="msg">Cargando... </h3>}
+        {loading && (
+          <Spinner animation="border" role="status">
+            <span className="visually-hidden">Cargando...</span>
+          </Spinner>
+        )}
         {filteredServices.map((service) => (
           <ServiCard className="img" info={service} key={service.id} />
         ))}

@@ -1,0 +1,51 @@
+@use "styles";
+
+.navbar {
+  background-color: styles.$secondary-color;
+  color: white;
+  font-family: styles.$primary-font;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.active-class {
+  color: #fff;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 1.2rem;
+
+}
+
+.inactive-class {
+  margin-top: 1rem;
+  padding: 0.2rem 0.2rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.active-class:hover {
+  text-decoration: none;
+}
+
+.inactive-class:hover {
+  color: #b5b5b5;
+  border-bottom: 1px solid #b5b5b5;
+  opacity: 0.8;
+}
+
+#collasible-nav-dropdown {
+  display: block;
+}
+
+.menu {
+  color: black;
+}
+
+.carticon {
+  font-size: 1.5rem;
+}
+Button{
+  text-decoration: none;
+}

@@ -1,0 +1,84 @@
+@use "styles";
+
+.title {
+  text-align: center;
+  margin-bottom: 70px;
+  font-family: styles.$primary-font;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 45px;
+}
+
+.my-dropdown {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+
+  #dropdown-basic {
+    color: #fff;
+    background-color: styles.$secondary-color;
+    border-color: styles.$primary-color;
+    padding: 0.375rem 0.75rem;
+    font-size: 25px;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+    width: 250px;
+    font-family: styles.$primary-font;
+    font-weight: 700;
+  }
+}
+
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.img-fluid {
+  width: 30px;
+  height: auto;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.card {
+  margin-bottom: 100px;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  padding: 200px;
+}
+
+.card-title {
+  margin-bottom: 8px;
+  font-family: styles.$primary-font;
+  font-weight: 700;
+  font-size: 50px;
+}
+
+.card-text {
+  font-family: styles.$primary-font;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.d-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.btnserv {
+  align-items: center;
+  margin-top: 20px;
+  font-family: styles.$primary-font;
+  margin-left: 50px;
+  justify-content: center;
+}
+.mr-2 {
+  margin-right: 50px;
+}

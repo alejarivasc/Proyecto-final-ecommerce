@@ -29,7 +29,6 @@ export default function MyService({ publications, handleDelete }) {
                   >
                     Eliminar
                   </Button>
-                  {/* <Link to={"/newservice"}><Button variant="primary" >Crear nueva</Button></Link> */}
                 </div>
               </Card.Body>
             </Card>

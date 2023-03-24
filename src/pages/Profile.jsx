@@ -1,33 +1,37 @@
-   import { Link } from "react-router-dom";
-   import { Button, Card } from "react-bootstrap";
-   import { PersonSquare } from "react-bootstrap-icons";
+import { Link } from "react-router-dom";
+import { Button, Card } from "react-bootstrap";
+import { PersonSquare } from "react-bootstrap-icons";
 
-   import {  useUserContext } from "../context/UserContext";
+import { useUserContext } from "../context/UserContext";
 
 export default function Profile() {
-     const { users  } = useUserContext();
+  const { users } = useUserContext();
 
- return (
-      <div>
-              {users.map((user) => (
-
-        <Card style={{ width: "30rem", marginLeft: "20rem" }} key={user.email}>
+  return (
+    <div>
+      {users.map((user) => (
+        <Card
+          className="card"
+          style={{ width: "30rem", marginLeft: "20rem" }}
+          key={user.email}
+        >
           <Card.Header as="h5">
-            <PersonSquare className="me-3" />
+            <PersonSquare className="me-3 inconp" />
             Perfil de usuario
           </Card.Header>
           <Card.Body>
             <Card.Text>
-            <p>Nombre: {user.name}</p>
+              <p>Nombre: {user.name}</p>
               <p>Email: {user.email} </p>
               <p>Fecha de nacimiento: {user.birthdate} </p>
               <p>Dirección: {user.location}</p>
             </Card.Text>
             <Link to="/editprofile">
-              <Button> Modifica tus datos </Button>
+              <Button className="btnsign"> Modifica tus datos </Button>
             </Link>
           </Card.Body>
-        </Card> 
-              ))}
-      </div>
- )}
+        </Card>
+      ))}
+    </div>
+  );
+}

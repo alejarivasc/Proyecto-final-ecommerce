@@ -16,59 +16,119 @@ export default function NavBar() {
   const { userIn, handleLogout } = useUserContext();
 
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar collapseOnSelect expand="lg" className="navbar" variant="dark">
       <Container className="mt-0">
-        <NavLink to="/">
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? "active-class" : "inactive-class"
+          }
+        >
           <img
             src={logo}
             width="100"
             height="80"
             className="d-inline-block align-top"
-            alt="React Bootstrap logo"
+            alt="Logo ServiFinder"
           />
         </NavLink>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto gap-2">
-            <NavLink to="/about">¿Quiénes somos?</NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "active-class" : "inactive-class"
+              }
+              to="/about"
+            >
+              ¿Quiénes somos?
+            </NavLink>
 
             {userIn ? (
-              <NavLink to="/" onClick={handleLogout}>
+              <NavLink
+                to="/"
+                onClick={handleLogout}
+                className={({ isActive }) =>
+                  isActive ? "active-class" : "inactive-class"
+                }
+              >
                 Cerrar sesión
               </NavLink>
             ) : (
               <>
-                <NavLink to="/singin">
+                <div>
                   <SignIn />
-                </NavLink>
-                <NavLink to="/singup">
+                </div>
+                <div>
                   <SignUp />
-                </NavLink>
+                </div>
               </>
             )}
 
-            <NavLink to="/services">Servicios</NavLink>
+            <NavLink
+              to="/services"
+              className={({ isActive }) =>
+                isActive ? "active-class" : "inactive-class"
+              }
+            >
+              Servicios
+            </NavLink>
           </Nav>
-          <Nav className=" gap-2">
-            {userIn ? (
-              <NavDropdown
-                title="Mi Cuenta"
-                id="collasible-nav-dropdown"
-                className="d-flex flex-column"
-              >
-                <NavLink to="/profile">Perfil</NavLink>
-                <NavLink to="/favorites">Mis favoritos</NavLink>
-                <NavLink to="/myservice">Mis Publicaciones</NavLink>
-              </NavDropdown>
-            ) : null}
+          <NavLink>
+            <Nav className=" gap-2">
+              {userIn ? (
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "active-class" : "inactive-class"
+                  }
+                >
+                  <NavDropdown title="Mi Cuenta" id="collasible-nav-dropdown">
+                    <NavDropdown.Item>
+                      <NavLink
+                        to="/profile"
+                        className={({ isActive }) =>
+                          isActive ? "active-class menu" : "inactive-class menu"
+                        }
+                      >
+                        Perfil
+                      </NavLink>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item>
+                      <NavLink
+                        to="/favorites"
+                        className={({ isActive }) =>
+                          isActive ? "active-class menu" : "inactive-class menu"
+                        }
+                      >
+                        Mis favoritos
+                      </NavLink>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item>
+                      <NavLink
+                        to="/myservice"
+                        className={({ isActive }) =>
+                          isActive ? "active-class menu" : "inactive-class menu"
+                        }
+                      >
+                        Mis Publicaciones
+                      </NavLink>
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                </NavLink>
+              ) : null}
 
-            {userIn ? (
-              <NavLink to="/mycart">
-                Mi carro
-                <Cart2 />
-              </NavLink>
-            ) : null}
-          </Nav>
+              {userIn ? (
+                <NavLink
+                  to="/mycart"
+                  className={({ isActive }) =>
+                    isActive ? "active-class" : "inactive-class"
+                  }
+                >
+                  <Cart2 className="carticon" />
+                </NavLink>
+              ) : null}
+            </Nav>
+          </NavLink>
         </Navbar.Collapse>
       </Container>
     </Navbar>

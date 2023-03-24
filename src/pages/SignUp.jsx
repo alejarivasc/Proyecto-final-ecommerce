@@ -1,14 +1,12 @@
 // componente para crear usuario
-import { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
-// import { useNavigate } from "react-router";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
 
 import { Button, Form, Modal } from "react-bootstrap";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function SignUp() {
-  // const navigate = useNavigate();
-
   const [show, setShow] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -16,30 +14,54 @@ export default function SignUp() {
   const [birthdate, setBirthdate] = useState("");
   const [location, setLocation] = useState("");
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = () => {
+    setShow(!show);
+  };
 
   const { handleAddUser } = useUserContext();
 
   const handleCreateUser = () => {
+    // Verificar que los campos no estén vacíos
+    if (
+      name.trim() === "" ||
+      email.trim() === "" ||
+      password.trim() === "" ||
+      birthdate.trim() === "" ||
+      location.trim() === ""
+    ) {
+      toast.error("Por favor llene todos los campos");
+      return;
+    }
+
+    // Verificar que el correo contenga "@"
+    if (!email.includes("@")) {
+      toast.error("Por favor ingrese un correo electrónico válido");
+      return;
+    }
+
+    // Verificar que la contraseña tenga más de 5 caracteres
+    if (password.length < 6) {
+      toast.error("Por favor ingrese una contraseña de al menos 6 caracteres");
+      return;
+    }
+
     const user = { name, email, password, birthdate, location };
     handleAddUser(user);
     console.log({ name, email, password, birthdate, location });
-    handleClose();
+    handleShow();
+    toast.success("Usuario creado exitosamente!");
   };
 
-  // useEffect(() => {
-  //   if (show) {
-  //     navigate("/");
-  //   }
-  // }, [show, navigate]);
   return (
     <>
-      <NavLink variant="primary" onClick={handleShow}>
+      <p
+        className={show ? "active-class" : "inactive-class"}
+        onClick={handleShow}
+      >
         Crear usuario
-      </NavLink>
+      </p>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleShow} className="signin-modal">
         <Modal.Header closeButton>
           <Modal.Title>¡Bienvenido a nuestro team!</Modal.Title>
         </Modal.Header>
@@ -53,6 +75,7 @@ export default function SignUp() {
                 name="name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                className="signin-input"
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicBirthdate">
@@ -63,6 +86,7 @@ export default function SignUp() {
                 name="birthdate"
                 value={birthdate}
                 onChange={(e) => setBirthdate(e.target.value)}
+                className="signin-input"
               />
             </Form.Group>
 
@@ -74,6 +98,7 @@ export default function SignUp() {
                 name="location"
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
+                className="signin-input"
               />
             </Form.Group>
 
@@ -85,6 +110,7 @@ export default function SignUp() {
                 name="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                className="signin-input"
               />
             </Form.Group>
 
@@ -96,24 +122,27 @@ export default function SignUp() {
                 name="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                className="signin-input"
               />
             </Form.Group>
-            {/* <Button variant="primary" type="submit">
-              Crear usuario
-            </Button> */}
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" className="btnout" onClick={handleShow}>
             Cancelar
           </Button>
           <Link to={"/"}>
-            <Button variant="primary" onClick={handleCreateUser}>
+            <Button
+              className="btnsign"
+              variant="primary"
+              onClick={handleCreateUser}
+            >
               Crear usuario
             </Button>
           </Link>
         </Modal.Footer>
       </Modal>
+      <ToastContainer />
     </>
   );
 }
