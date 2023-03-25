@@ -24,7 +24,7 @@ export default function SignIn() {
     if (success) {
       setUserIn(true); // actualizamos el estado userIn en UserProvider
       handleShow();
-      toast.success("Usuario creado exitosamente!");
+      toast.success("Bienvenido!");
     } else {
       toast.error("Correo o contraseña inválida");
     }
